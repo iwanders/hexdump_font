@@ -1,0 +1,3 @@
+[submodule "dejavu-fonts"]
+	path = dejavu-fonts
+	url = git@github.com:dejavu-fonts/dejavu-fonts.git
