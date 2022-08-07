@@ -15,14 +15,14 @@ def copy_font_properties(src, dst):
     dst.ascent = src.ascent
     dst.bitmapSizes = src.bitmapSizes
     dst.changed = src.changed
-    dst.copyright = src.copyright
+    # dst.copyright = src.copyright
     dst.descent = src.descent
     dst.design_size = src.design_size
     dst.em = src.em
     dst.encoding = src.encoding
-    dst.familyname = src.familyname + "_hexfont"
+    # dst.familyname = src.familyname + "_hexfont"
     dst.fontlog = src.fontlog
-    dst.fullname = src.fullname + "_hexfont"
+    # dst.fullname = src.fullname + "_hexfont"
     dst.strokedfont = src.strokedfont
     dst.strokewidth = src.strokewidth
     dst.upos = src.upos
@@ -98,6 +98,24 @@ copy_building_block(deja_base, ord(" "), hexfont, "hf_space")
 # Populate the first byte fully.
 for i in range(256):
     create_hexadecimal_codepoint(hexfont, i);
+
+# Adapted from:
+# https://stackoverflow.com/questions/63872752/fontforge-python-add-kerning-classes
+# http://designwithfontforge.com/en-US/Spacing_Metrics_and_Kerning.html
+# Oh, default kerning must always be zero, lets do it by pairs afterall.
+def add_kerning(hf):
+    space_glyph = list(hf.selection.select("hf_space").byGlyphs)[0]
+
+    offsets = [space_glyph.width] * (256 ** 2)
+    offsets_tuple = tuple(offsets)
+
+    hf.addLookup("kern", "gpos_pair", (), [["kern", [["latn", ["dflt"]]]]])
+    c1 = tuple([list(hf.selection.select(i).byGlyphs)[0].glyphname for i in range(256)])
+
+    hf.addKerningClass("kern", "kern-1", c1, c1, offsets_tuple)
+
+add_kerning(hexfont)
+
 
 # Dump output.
 hexfont.fontname="HexFont"
