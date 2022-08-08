@@ -44,7 +44,10 @@ def create_hexadecimal_codepoint(hf, cp, append_space=False):
     # Retrieve or obtain the char we are going to update.
     c = hexfont.createChar(cp)
 
-    unicode_char = unichr(cp)
+    try:
+        unicode_char = unichr(cp)
+    except NameError:
+        unicode_char = chr(cp)
 
     try:
         unicode_bytes = unicode_char.encode("utf-8")
@@ -58,7 +61,7 @@ def create_hexadecimal_codepoint(hf, cp, append_space=False):
             v = "0" + v
 
     # Split it by chunks of two characters
-    hexdisplay = [v[(i*2):((i + 1)*2)] for i in range(len(v)/2)]
+    hexdisplay = [v[(i*2):((i + 1)*2)] for i in range(int(len(v)/2))]
 
     # Then, iterate over the bytes.
     current_offset = 0;
