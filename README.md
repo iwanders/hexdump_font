@@ -30,3 +30,7 @@ in 'fancy' editors that show the font in its own typeface in the fontselector (I
 OpenOffice), the font is called `48 65 78 44 75 6D 70 46 6F 6E 74 0A`, but probably still sorted
 near the 'H'.
 
+## License
+This is clearly a derivative work of dejavu-fonts; as such, the binary releases in this repository
+are governed by the compatible SIL Open Font License, found in the [OFL.txt](OFL.txt) file. The
+source code to generate the font is licensed under BSD-3-clause, found in [LICENSE](LICENSE).
