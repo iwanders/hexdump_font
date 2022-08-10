@@ -172,6 +172,7 @@ if __name__ == "__main__":
     populate_block(0x0080, 0x00FF)
     populate_block(0x0100, 0x017F)
     populate_block(0x0180, 0x024F)
+
     populate_block(0x2000, 0x206F)
 
     populate_block(0x20A0, 0x20CF)
