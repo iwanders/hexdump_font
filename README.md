@@ -20,9 +20,10 @@ equivalents.
 
 ## Usage
 Tested and developed against `fontforge 11:21 UTC 24-Sep-2017`, `libfontforge 20170924` (from Ubuntu
-18.04 apt mirrors) Run `make` in this directory. This writes the fontforge `sfd` file to the `out`
-directory, as well as writing the `.ttf` file there. An example html page that uses this font can be
-hosted with `make test_host`.
+18.04 apt mirrors), confirmed working with fontforge `20190801` (from Ubuntu 20.04).
+Run `make` in this directory. This writes the fontforge `sfd` file to the `out` directory, as well
+as writing the `.ttf` file there. An example html page that uses this font can be hosted with
+`make test_host`.
 
 On Linux, it's easiest to copy the ttf file to the `~/.local/share/fonts/` directory, do note that
 in 'fancy' editors that show the font in its own typeface in the fontselector (Inkscape and
