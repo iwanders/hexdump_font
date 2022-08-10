@@ -1,5 +1,9 @@
 #!/usr/bin/env fontforge
 
+# Copyright (c) 2022 Ivor Wanders
+# SPDX-License-Identifier: BSD-3-Clause
+# https://github.com/iwanders/hexdump_font
+
 import fontforge
 import sys
 import argparse
@@ -127,6 +131,7 @@ if __name__ == "__main__":
     parser.add_argument('--full-name', default=None, help="Full name, copies if not set.")
     parser.add_argument('--font-name', default="HexDumpFont", help="Font name (default: %(default)s).")
     parser.add_argument('--copyright', default=None, help="Font copyright field.")
+    parser.add_argument('--copyright-file', default=None, help="File to read font copyright from.")
     parser.add_argument('--output', nargs="+", type=str, default=[],
                         help="Outputs to write, can have multiple outputs.")
     args = parser.parse_args()
@@ -175,6 +180,9 @@ if __name__ == "__main__":
         hexfont.familyname = args.family_name
     if args.full_name:
         hexfont.fullname = args.full_name
+    if args.copyright_file is not None:
+        with open(args.copyright_file) as f:
+            args.copyright = f.read()
     if args.copyright:
         hexfont.copyright = args.copyright
 

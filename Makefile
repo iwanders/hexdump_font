@@ -8,6 +8,7 @@ all:
 	  --font-name HexDumpFont \
 	  --family-name "HexDumpFont DejaVu Sans Mono" \
 	  --full-name "HexDumpFont DejaVu Sans Mono" \
+	  --copyright-file "OFL.txt" \
 	  --output ./out/HexDumpFont.sfd ./out/HexDumpFont.ttf
 
 test_host:
