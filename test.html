@@ -4,19 +4,26 @@
 <style>
 @font-face {
   font-family: 'HexDumpFont';
-  src: url('/out/HexDumpFont.ttf') format('truetype');
+  src: url('/out/HexDumpFont.woff') format('woff');
 }
 
-.example {
+.hexdumpfont {
   font-family: "HexDumpFont";
+}
+
+.inputbox {
+  width: 90%;
+}
+
+.hidden {
+  display: none;
 }
 </style>
 </head>
-
-
 <body>
 
-<pre class="example">
+<span id="example">
+<pre class="hexdumpfont" >
 &#x00;
 &#x01;
 &#x02;
@@ -39,6 +46,11 @@ Hello World
 <!-- RIGHT SINGLE QUOTATION MARK -->
 &#x2019;
 </pre>
+<a href="javascript: document.getElementById('example').classList.add('hidden');">Hide Example</a><br>
+</span>
+
+<textarea class="hexdumpfont inputbox">
+</textarea>
 
 </body>
 </html>
