@@ -170,7 +170,7 @@ if __name__ == "__main__":
     0 BMP	U+2150..U+218F	Number Forms	64	60	Latin (41 characters), Common (19 characters)
     """
     def populate_block(lower, upper):
-        for i in range(lower, upper):
+        for i in range(lower, upper + 1):
             create_hexadecimal_codepoint(hexfont, i, append_space=args.pad_space);
 
     populate_block(0x0000, 0x007f)

@@ -23,12 +23,14 @@ Tested and developed against `fontforge 11:21 UTC 24-Sep-2017`, `libfontforge 20
 18.04 apt mirrors), confirmed working with fontforge `20190801` (from Ubuntu 20.04).
 Run `make` in this directory. This writes the fontforge `sfd` file to the `out` directory, as well
 as writing the `.ttf` file there. An example html page that uses this font can be hosted with
-`make test_host`.
+`make test_host`, the textarea allows typing text in this font.
 
 On Linux, it's easiest to copy the ttf file to the `~/.local/share/fonts/` directory, do note that
 in 'fancy' editors that show the font in its own typeface in the fontselector (Inkscape and
 OpenOffice), the font is called `48 65 78 44 75 6D 70 46 6F 6E 74 0A`, but probably still sorted
 near the 'H'.
+
+On Windows, use the `.otf` file to ensure unicode characters display correctly.
 
 ## License
 This is clearly a derivative work of dejavu-fonts; as such, the binary releases in this repository
