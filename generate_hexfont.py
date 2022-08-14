@@ -35,6 +35,11 @@ def copy_font_properties(src, dst):
     dst.version = src.version
     dst.verticalBaseline = src.verticalBaseline
     dst.weight = src.weight
+    # Ensure the layers exist and have the correct properties.
+    for layer_name in src.layers:
+        dst.layers[layer_name].is_quadratic = src.layers[layer_name].is_quadratic
+        dst.layers[layer_name].is_background = src.layers[layer_name].is_background
+
 
 def copy_building_block(src, src_codepoint, dst, name):
     src.selection.select(src_codepoint)
